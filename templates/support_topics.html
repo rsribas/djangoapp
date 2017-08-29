@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'support_new' %}">Adicionar</a>
+<ul>
+<table>
+<tr>
+  <th>Assunto</th>
+  <th>Descricao</th>
+  <th>Data</th>
+</tr>
+{% for ass in obj %}
+	<tr>
+  <td>{{ ass.assunto }}</td>
+  <td>{{ ass.descricao }}</td>
+  <td>{{ ass.date_added }}</td>
+</tr>
+{% empty %}
+	<li>Nenhum Ticket encontrado</li>
+{% endfor %}
+</table>
+
+{% endblock content %}
